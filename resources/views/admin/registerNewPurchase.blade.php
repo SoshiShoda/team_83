@@ -51,5 +51,6 @@
         </tr>
     </table>
     <button type="submit">登録する</button>
+
 </body>
 </html>
