@@ -5,34 +5,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>salesManagement</title>
-</head>
+    </head>
 <body>
     <h2>販売管理ページ</h2>
-    <div class="search-parameter">
-        <h3>検索条件</h3>
-        <div>
-            <label for="product-id">商品番号
-                <input type="text" id="product-id">
-            </label>
+    <h3>条件検索</h3>
+    <div style="background-color: aqua; " class="salesManagement-block" id="search-parameter">
+        <div class="search-input-area">
+            <table>
+                <tr>
+                    <td><label for="product-id">商品番号</label></td>
+                    <td><input type="text" id="product-id"></td>
+                </tr>
+                <tr>
+                    <td><label for="product-name">商品名</label></td>
+                    <td><input type="text" id="product-name"></td>
+                </tr>
+                <tr>
+                    <td><label for="section-name">部門</label></td>
+                    <td><input type="text" id="section-name"></td>
+                </tr>
+            </table>
         </div>
-        <div>
-                <label for="product-name">商品名
-                    <input type="text" id="product-name">
-                </label>
-        </div>
-        <div>
-            <label for="section-name">部門
-                <input type="text" id="section-name">
-            </label>
-        </div>
-        <div class="serach-buttons">
+
+        <div class="search-buttons">
             <button>実行</button>
             <button>解除</button>
             <button>条件クリア</button>
         </div>
     </div>
-    <div class="sales-table">
-        <table>
+
+    <h3>検索結果一覧</h3>
+
+    <div style="background-color: violet;" class="salesManagement-block" id="sales-table-area">
+        <table id="sales-table-area-table">
             <tr>
                 <th>売上日時</th>
                 <th>商品番号</th>
@@ -107,20 +112,69 @@
             </tr>
         </table>
     </div>
-    <div class="total-amounts">
-        <div class="total-bought-price-without-tax">
-            <label>税抜合計
-                <span>\xxxx</span>
-            </label>
+
+    <h3>合計値</h3>
+
+    <div style="background-color: greenyellow;" class="salesManagement-block" id="total-amounts-area">
+        <div class="total-amount">
+            <label>税抜合計</label>
+            <span>\xxxx</span>
         </div>
-        <div class="total-tax-amount">
-            <label for="">消費税合計
-                <span>\xxxx</span>
+        <div class="total-amount">
+            <label for="">消費税合計</label>
+            <span>\xxxx</span>
         </div>
-        <div class="total-tax-amount">
-            <label for="">税込合計
-                <span>\xxxx</span>
+        <div class="total-amount">
+            <label for="">税込合計</label>
+            <span>\xxxx</span>
         </div>
     </div>
+
+    <style>
+        /* 全体 */
+        table {
+            margin: auto;
+        }
+
+        table,th,td {
+            border-collapse: collapse;
+            border: 1px solid black;
+        }
+
+        th,td {
+            padding: 7px;
+        }
+
+        /* 条件検索エリア */
+        .search-buttons {
+            margin-top: 15px;
+        }
+
+        /* 検索結果一覧エリア */
+        .salesManagement-block {
+            text-align: center;
+        }
+
+        /* 合計値エリア */
+        #total-amounts-area {
+            display: flex;
+            justify-content: center;
+        }
+
+        .total-amount {
+            display: flex;
+            justify-content: center;
+            /* border: 1px solid black; */
+            margin-right: 30px;
+            border-bottom: 1px solid black;
+            font-weight: bold;
+            font-size: large;
+        }
+
+        .total-amount label {
+            background-color: lightgrey;
+        }
+
+    </style>
 </body>
 </html>
