@@ -15,26 +15,15 @@ use APP\Http\Controllers;
 */
 
 
-// 在庫管理ページで商品名検索をする
-Route::get('/inventory_management', [App\Http\Controllers\ProductController::class, 'inventory_search']);
 
-
-
-
-
-
-
-
-
-/*
-このページは後日削除します。作業中のページ確認用に作成しました。
-*/ 
 
 /*
 Route::get('/', function () {
     return view('welcome');
 });
 */
+
+// このページは後日削除します。作業中のページ確認用に作成しました。
 Route::get('/', function () {
     return view('list_page');
 });
@@ -66,6 +55,12 @@ Route::get('/review_edit', function () {
 Route::get('/review_register', function () {
     return view('user/review_register');
 });
+
+
+
+// 在庫管理ページで商品名検索をする
+Route::get('/inventory_management', [App\Http\Controllers\ProductController::class, 'inventory_search']);
+
 
 
 
