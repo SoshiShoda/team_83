@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Purchase extends Model
 {
     use HasFactory;
+
+    // product（商品）と連結
+    public function product()
+    {
+    return $this->belongsTo(Product::class);
+    }
 }
