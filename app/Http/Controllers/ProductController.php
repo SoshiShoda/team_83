@@ -19,20 +19,33 @@ class ProductController extends Controller
     public function inventory_search(Request $request)
     {
         // プルダウン表示用一覧
-        $inventory_indexes = Product::orderBy('id','desc')->get();
+        $inventory_indexes = Product::where('product_status','active')->orderBy('product_name','desc')->get();
 
         // 商品名検索
         $inventory_searches = null;
         $inventory_search_text = $request->input('inventory_search_text');
         if($inventory_search_text !=null){
-            $inventory_searches = Product::with(['purchases'=>function($q){$q->orderBy('created_at','desc');}])->where('product_name','like','%'.$inventory_search_text.'%')->orderBy('id','asc')->get();
+            $inventory_searches = Product::with(['purchases'=>function($q){
+                                        $q->where('purchased_status','active')
+                                        ->orderBy('created_at','desc');
+                                    }])
+                                    ->where('product_name','like','%'.$inventory_search_text.'%')
+                                    ->where('product_status','active')
+                                    ->orderBy('id','asc')
+                                    ->get();
             return view('admin/inventory_management',[
                 'inventory_searches'=>$inventory_searches,
                 'inventory_indexes'=>$inventory_indexes,
                 'inventory_search_text'=>$inventory_search_text,
             ]);
         }else {
-            $inventory_searches = Product::with(['purchases'=>function($q){$q->orderBy('created_at','desc');}])->orderBy('id','asc')->get();
+            $inventory_searches = Product::with(['purchases'=>function($q){
+                                        $q->where('purchased_status','active')
+                                        ->orderBy('created_at','desc');
+                                    }])
+                                    ->where('product_status','active')
+                                    ->orderBy('id','asc')
+                                    ->get();
             return view('admin/inventory_management',[
                 'inventory_searches'=>$inventory_searches,
                 'inventory_indexes'=>$inventory_indexes,
