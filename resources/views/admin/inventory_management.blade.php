@@ -18,7 +18,7 @@
                     <input type="search" name="inventory_search_text" value="{{ $inventory_search_text }}" list="inventory-search-list">
                     <datalist id="inventory-search-list">
                         @foreach ($inventory_indexes as $inventory_index)
-                        <option value="{{ $inventory_index->product_name }}">{{ $inventory_index->product_name }}</option>
+                            <option value="{{ $inventory_index->product_name }}">{{ $inventory_index->product_name }}</option>
                         @endforeach
                     </datalist>
                     <button type="submit">検索</button>
@@ -26,7 +26,7 @@
             </div>
 
     <div>
-        <a href="{{ url('/productRegister') }}"><button>商品新規登録</button></a>
+        <a href="{{ route( 'productRegister' ) }}"><button>商品新規登録</button></a>
         <button>商品一覧</button>
     </div>
     <div>
@@ -45,20 +45,20 @@
             <th>商品情報編集</th>
         </tr>
         @foreach ($inventory_searches as $inventory_search)
-        <tr>
-            <td>{{ $inventory_search->id }}</td>
-            <td>{{ $inventory_search->product_name }}</td>
-            <td>{{ $inventory_search->product_size }}</td>
-            <td>{{ $inventory_search->purchases->first()->purchased_price_with_tax }}</td>
-            <td>{{ $inventory_search->product_price_with_tax }}</td>
-            <td>{{ $inventory_search->purchases->first()->purchased_date }}</td>
-            <td>{{ $inventory_search->ordering_point }}</td>
-            <td>{{ $inventory_search->stock_quantity }}</td>
-            <td>@if($inventory_search->stock_quantity < $inventory_search->ordering_point){{'発注点を下回りました。'}}@endif</td>
-            <td><button submit="">発注</button></td>
-            <td><button>編集</button></td>
-            </tr
-            >@endforeach
+            <tr>
+                <td>{{ $inventory_search->id }}</td>
+                <td>{{ $inventory_search->product_name }}</td>
+                <td>{{ $inventory_search->product_size }}</td>
+                <td>{{ $inventory_search->purchases->first()->purchased_price_with_tax }}</td>
+                <td>{{ $inventory_search->product_price_with_tax }}</td>
+                <td>{{ $inventory_search->purchases->first()->purchased_date }}</td>
+                <td>{{ $inventory_search->ordering_point }}</td>
+                <td>{{ $inventory_search->stock_quantity }}</td>
+                <td>@if($inventory_search->stock_quantity < $inventory_search->ordering_point){{'発注点を下回りました。'}}@endif</td>
+                <td><button submit="">発注</button></td>
+                <td><button>編集</button></td>
+            </tr>
+        @endforeach
 
         </table>
     </div>
