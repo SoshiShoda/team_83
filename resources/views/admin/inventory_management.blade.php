@@ -26,7 +26,7 @@
             </div>
 
     <div>
-        <a href="{{ route( 'productRegister' ) }}"><button>商品新規登録</button></a>
+        <a href=""><button>商品新規登録</button></a>
         <button>商品一覧</button>
     </div>
     <div>

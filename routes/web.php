@@ -23,11 +23,7 @@ Route::get('/', function () {
 });
 
 // 在庫管理ページで商品名検索をする
-Route::get('/inventory_management', [App\Http\Controllers\ProductController::class, 'inventory_search'])->name('inventory_searches');
+Route::get('/inventory_management', [App\Http\Controllers\ProductController::class, 'inventory_search'])->name('inventory_management');
 
-// 商品登録ページ
-Route::get('/productRegister', function () {
-    return view('admin/productRegister');
-})->name('productRegister');
 
 
