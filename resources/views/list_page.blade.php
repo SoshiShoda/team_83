@@ -17,6 +17,7 @@
         <li><a href="{{ url('/salesManagement') }}">販売管理</a></li>
         <li><a href="{{ url('/productEdit') }}">商品編集</a></li>
         <li><a href="{{ url('/productRegister') }}">商品登録</a></li>
+        <li><a href="{{ url('/productDetail') }}">商品詳細</a></li>
     </ul>
 </div>
 
