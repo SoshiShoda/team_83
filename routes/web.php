@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use APP\Http\Controllers;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
+
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+// 在庫管理ページで商品名検索をする
+Route::get('/inventory_management', [App\Http\Controllers\ProductController::class, 'inventory_search'])->name('inventory_management');
+
+
+
