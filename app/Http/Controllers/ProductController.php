@@ -33,11 +33,6 @@ class ProductController extends Controller
                                     ->where('product_status','active')
                                     ->orderBy('id','asc')
                                     ->get();
-            return view('admin/inventory_management',[
-                'inventory_searches'=>$inventory_searches,
-                'inventory_indexes'=>$inventory_indexes,
-                'inventory_search_text'=>$inventory_search_text,
-            ]);
         }else {
             $inventory_searches = Product::with(['purchases'=>function($q){
                                         $q->where('purchased_status','active')
@@ -46,12 +41,12 @@ class ProductController extends Controller
                                     ->where('product_status','active')
                                     ->orderBy('id','asc')
                                     ->get();
-            return view('admin/inventory_management',[
-                'inventory_searches'=>$inventory_searches,
-                'inventory_indexes'=>$inventory_indexes,
-                'inventory_search_text'=>$inventory_search_text,
-            ]);
         }
+        return view('admin/inventory_management',[
+        'inventory_searches'=>$inventory_searches,
+        'inventory_indexes'=>$inventory_indexes,
+        'inventory_search_text'=>$inventory_search_text,
+    ]);
     }
 
     /**
