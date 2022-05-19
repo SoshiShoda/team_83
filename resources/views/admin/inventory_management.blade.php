@@ -49,9 +49,9 @@
                 <td>{{ $inventory_search->id }}</td>
                 <td>{{ $inventory_search->product_name }}</td>
                 <td>{{ $inventory_search->product_size }}</td>
-                <td>{{ $inventory_search->purchases->first()->purchased_price_with_tax }}</td>
+                <td>{{ $inventory_search->purchases->first()->purchased_price_with_tax??null.'ー' }}</td>
                 <td>{{ $inventory_search->product_price_with_tax }}</td>
-                <td>{{ $inventory_search->purchases->first()->purchased_date }}</td>
+                <td>{{ $inventory_search->purchases->first()->purchased_date??null.'ー' }}</td>
                 <td>{{ $inventory_search->ordering_point }}</td>
                 <td>{{ $inventory_search->stock_quantity }}</td>
                 <td>@if($inventory_search->stock_quantity < $inventory_search->ordering_point){{'発注点を下回りました。'}}@endif</td>
