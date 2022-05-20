@@ -14,23 +14,23 @@ class PurchaseController extends Controller
      * @param Request $request
      * @return response
      */
-    public function index(Request $request)
+    public function purchaseIndex(Request $request)
     {
-        $purchaseKeyword = $request->input('purchase_keyword');
-        $productKeyword = $request->input('product_keyword');
+        $purchase_keyword = $request->input('purchase_keyword');
+        $product__keyword = $request->input('product_keyword');
         $query = Purchase::query();
-        if(!empty($purchaseKeyword)) {
-            $query->where('id', 'like', '%' . $purchaseKeyword . '%');
+        if(!empty($purchase_keyword)) {
+            $query->where('id', 'like', '%' . $purchase_keyword . '%');
             $purchases = $query->orderBy('created_at', 'desc')->get();
         }
 
-        if(!empty($productKeyword)) {
-            $query->where('product_id', 'like', '%' . $productKeyword . '%');
+        if(!empty($product__keyword)) {
+            $query->where('product_id', 'like', '%' . $product__keyword . '%');
             $purchases = $query->orderBy('created_at', 'desc')->get();
         }
 
         $purchases = $query->orderBy('created_at', 'desc')->get();
-        return view('admin.purchaseList', [
+        return view('admin.purchase_list', [
             'purchases' => $purchases,
         ]);
 
@@ -42,7 +42,7 @@ class PurchaseController extends Controller
      * @param Request $request
      * @return response
      */
-    public function store(Request $request)
+    public function purchaseStore(Request $request)
     {
         // バリデート
         $this->validate($request, [
@@ -68,7 +68,7 @@ class PurchaseController extends Controller
             'payment_date' => $request->payment_date,
         ]);
 
-        return redirect('/purchaseList');
+        return redirect('/purchase_list');
 
     }
 
@@ -79,9 +79,9 @@ class PurchaseController extends Controller
      * @param Purchase $purchase
      * @return Response
      */
-    public function destroy(Request $request, Purchase $purchase)
+    public function purchaseDestroy(Request $request, Purchase $purchase)
     {
         $purchase->delete();
-        return redirect('/purchaseList');
+        return redirect('/purchase_list');
     }
 }

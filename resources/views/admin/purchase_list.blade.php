@@ -12,7 +12,7 @@
     <h2>仕入一覧ページ</h2>
     <div class="container search-parameter">
         <h3>検索条件</h3>
-        <form action="">
+        <form action="" >
             <div id="purchase-id-search-box" class="input-group mb-3">
                 <span id="purchase-id-search-span" class="input-group-text">仕入ID</span>
                 <input type="text" id="purchase-id-search-input" name="purchase_keyword" class="form-control">
