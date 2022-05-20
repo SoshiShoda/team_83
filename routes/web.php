@@ -22,10 +22,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// 在庫管理ページ
-Route::get('/inventory_management',[App\Http\Controllers\ProductController::class, 'inventory_search'])->name('inventory_management');
 
-// レビュー登録ページ
 Route::get('/review_register/{user_id}/{product_id}',[App\Http\Controllers\ReviewController::class,'review_register'])->name('review_register');
 //レビュー登録
 Route::post('/review_add/{user_id}/{product_id}',[App\Http\Controllers\ReviewController::class,'review_add'])->name('review_add');
