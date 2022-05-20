@@ -10,28 +10,42 @@
 </head>
 <body>
     <h2>レビュー編集ページ</h2>
-    <form method="post" action="">
-        <div class="review-item">
-            <label for="">商品ID</label>
-            <!-- 商品ID自動表示 -->
-        </div>
-        <div>
-            <label for="">満足度</label>
-            <select name="">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-            </select>
-        </div>
-        <div>
-            <label for="">レビュー内容<br>（最大191文字）</label>
-            <textarea name="" id="" class="" placeholder="既存のデータを表示させるようにする"></textarea>
-        </div>
-        <div>
-            <button type="submit" class="">更新する</button>
-        </div>
-    </form>
+    <div>
+        <form method="post" action="{{route('review_update',['user_id' => $user_id ,'review_id' => $review_id])}}" enctype="multipart/form-data">
+            @csrf
+            <div>
+                @if($review_id->product->product_image1 !=null)
+                    <p><img src="{{ \Storage::url($review_id->product->product_image1)}}" class="rounded" alt="商品画像" width="5%"><span>{{ $review_id->product->product_name }}</span> </p>
+                @else
+                    <p><img src="{{ \Storage::url('public/review/no_image.png') }}" class="rounded" alt="" width="5%"><span>{{ $review_id->product->product_name }}</span> </p>
+                @endif
+            </div>
+            <div>
+                <label for="">満足度</label>
+                <select name="review_rating">
+                    <option hidden>{{$review_id->review_rating}}</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+            <div>
+                <label for="">レビュー内容<br>（最大191文字）</label>
+                <textarea name="review_text" id="" class="" placeholder="{{$review_id->review_text}}">{{$review_id->review_text}}</textarea>
+                <div class="bottom-area">
+                    <label for="">画像</label>
+                    @if($review_id->review_image !=null)
+                        <p><img src="{{ \Storage::url($review_id->review_image) }}" class="rounded w-25" alt=""><input type="file" name="review_image"></p>
+                    @else
+                        <input type="file" name="review_image">
+                    @endif
+                </div>
+                {{ csrf_field() }}
+                <button type="submit" >更新</button>
+            </div>
+        </form>
+    </div>
 </body>
 </html>
