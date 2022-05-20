@@ -9,7 +9,25 @@ class User extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'id',
+        'user_status',
+        'staff',
+        'user_name',
+        'post_code',
+        'prefecture',
+        'municipality',
+        'apartment',
+        'email',
+        'phone_number',
+        'birthday',
+        'occupation',
+        'gender',
+    ];
 
+    protected $hidden = [
+        'password',
+    ];
 
      // Buy(売上)と連結
     public function buys()

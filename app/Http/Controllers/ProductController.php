@@ -46,7 +46,7 @@ class ProductController extends Controller
         'inventory_searches'=>$inventory_searches,
         'inventory_indexes'=>$inventory_indexes,
         'inventory_search_text'=>$inventory_search_text,
-    ]);
+        ]);
     }
 
     /**

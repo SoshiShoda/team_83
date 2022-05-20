@@ -31,7 +31,12 @@ return new class extends Migration
     public function down()
     {
         Schema::table('buys', function (Blueprint $table) {
-            //
+            // buysテーブルにproduct_numberを追加
+            $table->string('product_number');
+            // buysテーブルにproduct_nameを追加
+            $table->string('product_name');
+            // 請求書番号コメント変更
+            $table->integer('invoice_id')->length(11)->index()->comment('請求書番号 例)2022000001')->change();
         });
     }
 };

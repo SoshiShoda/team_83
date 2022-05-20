@@ -12,7 +12,6 @@
     <h2>在庫管理ページ</h2>
             <div>
                 <h3>検索条件</h3>
-
                 <form>
                     <label class="form-label">商品名</label>
                     <input type="search" name="inventory_search_text" value="{{ $inventory_search_text }}" list="inventory-search-list">
