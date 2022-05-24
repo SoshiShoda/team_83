@@ -66,6 +66,8 @@ Route::post('/product_register/post', 'App\Http\Controllers\ProductController@pr
 Route::get('/product_edit/{id}', 'App\Http\Controllers\ProductController@productEditIndex')->name('product_edit');
 // 商品更新ボタン押下時
 Route::patch('/product_update/{id}', 'App\Http\Controllers\ProductController@productUpdate')->name('product_update');
+// 商品一覧ページ表示
+Route::get('/product_list', 'App\Http\Controllers\ProductController@productListIndex')->name('product_list');
 
 
 // 在庫管理ページ
