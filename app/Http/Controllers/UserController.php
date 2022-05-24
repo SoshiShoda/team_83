@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {
@@ -14,7 +15,7 @@ class UserController extends Controller
         'user_id'=>$user_id,
         ]);
     }
-    public function user_update(Request $request)
+    public function user_update(Request $request,User $user_id)
     {
         $request->validate([
             'user_name'=>'required|max:50',
@@ -22,13 +23,12 @@ class UserController extends Controller
             'prefecture'=>'required|max:4',
             'municipality'=>'required|max:191',
             'apartment'=>'max:191',
-            'email'=>'required|max:191|unique:users,email|email:rfc,dns',
+            'email'=>['required','max:191',Rule::unique('users')->ignore($user_id->id),'email:rfc,dns'],
             'phone_number'=>'required|max:11',
             'birthday'=>'required|date',
             'occupation'=>'required|max:50',
             'gender'=>'required|max:10',
             'password'=>'required|min:4|max:128',
-            'password_confirmation'=>'password_confirmation',
         ]);
         
         $user_edit = User::where('id',$user_id->id)->first();
@@ -42,6 +42,7 @@ class UserController extends Controller
         $user_edit->birthday = $request->birthday;
         $user_edit->occupation = $request->occupation;
         $user_edit->gender = $request->gender;
+        $user_edit->password = $request->password;
         $user_edit->updated_at = now();
         $user_edit->save();
         return redirect('/user_edit/'.$user_id->id);
