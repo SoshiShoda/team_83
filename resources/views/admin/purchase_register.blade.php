@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>registerNewPurchase</title>
+    <title>purchase_register</title>
 </head>
 <body>
     <!-- <h2>仕入登録ページ</h2> -->
@@ -56,7 +56,7 @@
 
     <div class="container">
         <h2>仕入登録ページ</h2>
-        <form action="{{ route('registerNewPurchase') }}" method="post">
+        <form action="{{ route('purchase_register') }}" method="post">
             {{ csrf_field() }}
             <div id="purchase-id-box" class="input-group mb-3">
                 <span id="purchase-id-span" class="input-group-text">仕入ID</span>

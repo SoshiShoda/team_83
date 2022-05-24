@@ -9,6 +9,18 @@ class Review extends Model
 {
     use HasFactory;
 
+
+    protected $fillable = [
+        'id',
+        'review_status',
+        'user_id',
+        'product_id',
+        'review_rating',
+        'review_text',
+        'review_image',
+    ];
+
+
     // user（ユーザー）と連結
     public function user()
     {
