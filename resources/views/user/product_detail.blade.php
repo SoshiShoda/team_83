@@ -15,7 +15,52 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style>
+        body > div.container > div > div.for-buy {
+            width: 30%;
+            min-width: 192px;
+        }
 
+        body > div.container > div > div.main {
+            width: 70%;
+        }
+
+        #slider-for-box {
+            position: relative;
+            width: 100%;
+        }
+
+        #slider-for-box:before {
+            content: '';
+            display: block;
+            padding-top: 75%;
+        }
+
+        #slider-for-box > ul {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+        }
+
+        #slider-for-box > ul > div > div > li.slick-slide.slick-current.slick-active {
+            width: 100%;
+        }
+
+        #slider-for-box {
+            width: 100%;
+        }
+
+        #slider-for-box > ul > div > div > li > img {
+            width: 100%;
+            height: auto;
+        }
+
+        body > div.container > div > div.main > div.slider-nav-box > ul > div > div > li > img {
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -51,6 +96,8 @@
             <!-- 商品情報ボックス -->
             <div class="for-buy">
                 <h3>商品情報</h3>
+                <!-- バリデーションエラーの表示 -->
+                @include('common.errors')
                 <form action="{{ '/product_detail/{id}/post' }}" method="post">
                 {{ csrf_field() }}
                     <input type="text" class="bg-light form-control" hidden id="product_id" name="user_id" value="{{ $product->user_id }}">
