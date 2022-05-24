@@ -46,7 +46,7 @@ class ProductController extends Controller
         'inventory_searches'=>$inventory_searches,
         'inventory_indexes'=>$inventory_indexes,
         'inventory_search_text'=>$inventory_search_text,
-    ]);
+        ]);
     }
 
     /**
@@ -190,7 +190,7 @@ class ProductController extends Controller
      */
     public function productUpdate(Request $request, $id)
     {
-        バリデート
+        // バリデート
         $this->validate($request, [
             'id' => 'required',
             'product_name' => 'required|max:50',
