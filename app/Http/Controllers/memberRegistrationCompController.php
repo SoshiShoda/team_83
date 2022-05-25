@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Buy;
 
-class userBuyController extends Controller
+class memberRegistrationCompController extends Controller
 {
     /**
      * 購入ページ 

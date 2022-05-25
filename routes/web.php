@@ -103,4 +103,4 @@ Route::post('/user_update/{user_id}',[App\Http\Controllers\UserController::class
 Route::get('/buyConfirmed', [App\Http\Controllers\buyConfirmedController::class, 'index']);
 
 // 会員登録完了ページ
-Route::get('/memberRegistrationComp', [App\Http\Controllers\userBuyController::class, 'index']);
+Route::get('/memberRegistrationComp', [App\Http\Controllers\memberRegistrationCompController::class, 'index']);
