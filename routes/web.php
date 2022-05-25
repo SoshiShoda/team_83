@@ -22,6 +22,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// ログインページ
+Route::get('/login', [App\Http\Controllers\LoginController::class, 'index']);
+// ログインチェック
+Route::post('/login/check', [App\Http\Controllers\LoginController::class, 'check']);
 
 // 商品一覧ページ（初期表示）
 Route::get('/productList', [App\Http\Controllers\ProductListController::class, 'index']);
