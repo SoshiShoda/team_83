@@ -49,7 +49,7 @@ class LoginController extends Controller
         }
 
         //ログイン機能（パスワード(ハッシュ値のpassword)チェックをする）
-        if (!password_verify($password, $userdata->password)) {
+        if ($password != $userdata->password) {
             //パスワード不一致の場合 はエラーメッセージを返しlogin画面に戻す
             $error_message = 'パスワードが違います。';
             $view = view('admin.login', [

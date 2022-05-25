@@ -102,5 +102,9 @@ Route::post('/user_update/{user_id}',[App\Http\Controllers\UserController::class
 // 購入確定ページ
 Route::get('/buyConfirmed', [App\Http\Controllers\buyConfirmedController::class, 'index']);
 
+//ユーザー登録ページ
+Route::get('/user_register',[App\Http\Controllers\UserController::class,'register_index'])->name('user_register');
+Route::post('/user_register',[App\Http\Controllers\UserController::class,'register_insert'])->name('user_register_insert');
+
 // 会員登録完了ページ
 Route::get('/memberRegistrationComp', [App\Http\Controllers\memberRegistrationCompController::class, 'index']);
