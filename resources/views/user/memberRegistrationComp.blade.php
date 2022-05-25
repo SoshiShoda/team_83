@@ -11,118 +11,191 @@
 </head>
 <body>
     <!-- ヘッダー部分 -->
-    <div class="header">
-        <header id="header" class="wrapper">
-            <h1 class="site-title">
-                <p>demosite</p>
-            </h1>
+    <div class="container">
+        <header id="header" class="header">
+            <div class="header-inner">
+                <h1 class="site-title">
+                    <p>demosite</p>
+                </h1>
+
+                <button class="header_hamburger hamburger" id="js-hamburger"> <!--ハンバーガーメニュー-->
+                    <span class="ham_line ham_line1"></span>
+                    <span class="ham_line ham_line2"></span>
+                    <span class="ham_line ham_line3"></span>
+                </button>
+
+                <nav class="header_nav nav" id="js-nav">
+                    <ul class="nav_items nav-items">
+                        <li class="nav-items_item"><a href="">ログイン</a></li>
+                        <li class="nav-items_item"><a href="">マイページ</a></li>
+                        <li class="nav-items_item"><a href="">商品一覧</a></li>
+                        <li class="nav-items_item"><a href="">カート</a></li>
+                        <li class="nav-items_item"><a href="">レビュー</a></li>
+                    </ul>
+                </nav>
+            </div>
         </header>
+        
+        <main>
+            <div class="main">
+                <div>
+                    <h1>登録が完了しました!</h1>
+                </div>
+                
+                <!-- トップに戻るボタン -->
+                <div>
+                    <input type="button" onclick="" value="トップに戻る">
+                </div>
+            </div>
+        </main>
 
-        <div class="ham" id="ham"> <!--ハンバーガーメニュー-->
-            <span class="ham_line ham_line1"></span>
-            <span class="ham_line ham_line2"></span>
-            <span class="ham_line ham_line3"></span>
-        </div>
-
-        <div class="menu-wrapper" id="menu-wrapper">
-            <nav class="navi" id="navi">
-                <ul class="nav-menu">
-                    <li><a href="">ログイン</a></li>
-                    <li><a href="">マイページ</a></li>
-                    <li><a href="">商品一覧</a></li>
-                    <li><a href="">カート</a></li>
-                    <li><a href="">レビュー</a></li>
-                </ul>
-            </nav>
-        </div>
-
-        <div class="toggle_btn">
-            <span></span>
-            <span></span>
-        </div>
-    </div>
-
-    <div>
-        <h1>登録が完了しました!</h1>
-    </div>
-    
-    <!-- トップに戻るボタン -->
-    <div>
-        <input type="button" onclick="" value="トップに戻る">
+        <footer class="footer">
+            <div>
+                フッター
+            </div>
+        </footer>
     </div>
 
     <style>
-        .header{
+        main {
+            background-color: #f1f1f1;
+            height: 700px;
             display: flex;
+        }
+        
+        .main{
+            margin: auto;
+        }
+        
+        .footer{
+            background-color: #f6f6f6;
+            height: 100px;
+            display: flex; 
+        }
+
+        .footer div{
+            margin: auto;
+        }
+
+        /* ヘッダー */
+        .header{
+            background-color: white;
             width: 100%;
             height: 100px;
-            background-color: darkgrey;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+        }
+
+        .header-inner {
+            padding: 0 20px; 
+            display: flex; 
             align-items: center;
-        }
-
-        .navi .nav-menu{
-            list-style: none;
-            padding: 10px;
-            position: absolute;
-            right: 10px;
-        }
-
-        .ham {
+            justify-content: space-between;
+            height: inherit; 
             position: relative;
-            width: 40px;
-            height: 40px;
-            cursor: pointer;
-            background-color: darkgrey;
-            border: solid 1px #000000;
-            border-radius: 10%;
-            margin-left: 80%;
         }
-        .ham_line {
+        
+        /* ヘッダーのナビ部分 */
+        .header_nav {
             position: absolute;
-            left: 10px;
-            width: 20px;
+            right: 0;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100vh;
+            transform: translateX(100%); 
+            background-color: darkgrey;
+            transition: ease .4s; 
+        }
+
+        .nav_items {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 0;
+        }
+
+        /* ナビのリンク */
+        .nav_items a {
+            color: black;
+            width: 100%;
+            display: block;
+            text-align: center;
+            font-size: 20px;
+            margin-bottom: 24px;
+            text-decoration: none;
+        }
+
+        .nav-items_item:last-child a {
+            margin-bottom: 0;
+        }
+
+        /* ハンバーガーメニュー */
+        .header_hamburger {
+            width: 48px;
+            height: 50%;
+        }
+
+        .hamburger {
+            background-color: transparent; 
+            border-color: transparent; 
+            z-index: 9999;
+        }
+
+        /* ハンバーガーメニューの線 */
+        .ham_line {
+            width: 100%;
             height: 1px;
-            background-color: #333333;
+            background-color: #000;
+            position: relative;
+            transition: ease .4s; 
+            display: block;
         }
         .ham_line1 {
-            top: 10px;
+            top: 0px;
         }
         .ham_line2 {
-            top: 18px;
+            margin: 8px 0;
         }
         .ham_line3 {
-            top: 26px;
+            top: 0px;
         }
-        .clicked .ham_line1 {
+
+        /* ハンバーガーメニュークリック後のスタイル */
+        .header_nav.active{
+            transform: translateX(0);
+        }
+        .hamburger.active span:nth-child(1) {
+            top: 5px;
             transform: rotate(45deg);
-            top: 20px;
         }
-        .clicked .ham_line2 {
-            width: 0px;
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
         }
-        .clicked .ham_line3 {
+
+        .hamburger.active span:nth-child(3) {
+            top: -13px;
             transform: rotate(-45deg);
-            top: 20px;
-        }
-        .navi {
-            position: fixed;
-            width: 300px;
-            height: 300px;
-            left: -400px;
-            background-color: aquamarine;
-            transition: all 0.3s;
-        }
-        .clicked .navi {
-            left: 0px;
-        }
+        } 
+
+
+
     </style>
+
     <script>
-        const ham = document.getElementById('ham');
-        const menu_wrapper = document.getElementById('menu-wrapper');
-        ham.addEventListener('click', function() {
-            ham.classList.toggle('clicked');
-            menu_wrapper.classList.toggle('clicked');
+        const ham = document.querySelector('#js-hamburger');
+        const nav = document.querySelector('#js-nav');
+        ham.addEventListener('click', function () {
+            ham.classList.toggle('active');
+            nav.classList.toggle('active');
         });
     </script>
+
+    
 </body>
 </html>

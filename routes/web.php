@@ -23,6 +23,14 @@ Route::get('/', function () {
 });
 
 
+// 商品一覧ページ（初期表示）
+Route::get('/productList', [App\Http\Controllers\ProductListController::class, 'index']);
+// 商品一覧ページ（検索時）
+Route::get('/productList/{keyword}', [App\Http\Controllers\ProductListController::class, 'search']);
+
+
+// 購入ページ
+Route::get('/buy', [App\Http\Controllers\userBuyController::class, 'index']);
 
 // 販売管理・売上情報ページ
 Route::get('/sales_management', 'App\Http\Controllers\BuyController@buyIndex')->name('buy_index');
@@ -69,7 +77,6 @@ Route::patch('/product_update/{id}', 'App\Http\Controllers\ProductController@pro
 // 商品一覧ページ表示
 Route::get('/product_list', 'App\Http\Controllers\ProductController@productListIndex')->name('product_list');
 
-
 // 在庫管理ページ
 Route::get('/inventory_management',[App\Http\Controllers\ProductController::class, 'inventory_search'])->name('inventory_management');
 //【del-S 20220524 watanabe レビュー機能の削除とテーブル調整】
@@ -88,3 +95,8 @@ Route::get('/inventory_management',[App\Http\Controllers\ProductController::clas
 Route::get('/user_edit/{user_id}',[App\Http\Controllers\UserController::class,'user_edit'])->name('user_edit');
 Route::post('/user_update/{user_id}',[App\Http\Controllers\UserController::class,'user_update'])->name('user_update');
 
+// 購入確定ページ
+Route::get('/buyConfirmed', [App\Http\Controllers\buyConfirmedController::class, 'index']);
+
+// 会員登録完了ページ
+Route::get('/memberRegistrationComp', [App\Http\Controllers\userBuyController::class, 'index']);
