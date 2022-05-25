@@ -9,6 +9,8 @@
     <title>purchase_register</title>
 </head>
 <body>
+    <!-- バリデーションエラーの表示 -->
+    @include('common.errors')
     <!-- <h2>仕入登録ページ</h2> -->
     <!-- <table class="purchase-items">
         <tr>
@@ -60,11 +62,11 @@
             {{ csrf_field() }}
             <div id="purchase-id-box" class="input-group mb-3">
                 <span id="purchase-id-span" class="input-group-text">仕入ID</span>
-                <input type="text" disabled id="purchase-id-input" name="id" class="form-control">
+                <input type="number" disabled id="purchase-id-input" name="id" class="form-control">
             </div>
             <div id="product-id-box" class="input-group mb-3">
                 <span id="product-id-span" class="input-group-text">商品ID</span>
-                <input type="text" id="product-id-input" name="product_id" class="form-control">
+                <input type="number" id="product-id-input" name="product_id" class="form-control">
             </div>
             <div id="purchased-price-box" class="input-group mb-3">
                 <span id="purchased-price-span" class="input-group-text">仕入価格（税抜）</span>
@@ -78,7 +80,7 @@
             </div>
             <div id="purchased-tax-rate-box" class="input-group mb-3">
                 <span id="purchased-tax-rate-span" class="input-group-text">消費税率</span>
-                <input type="text" id="purchased-tax-rate-input" name="purchased_tax_rate" class="form-control">
+                <input type="number" min="0" id="purchased-tax-rate-input" name="purchased_tax_rate" class="form-control">
                 <span class="input-group-text" id="purchased-tax-rate-addon">%</span>
             </div>
             <div id="purchased-quantity-box" class="input-group mb-3">
