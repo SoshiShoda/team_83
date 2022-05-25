@@ -25,8 +25,8 @@
             </div>
 
     <div>
-        <a href="{{route('product')}}"><button>商品新規登録</button></a>
-        <a href="{{route('product_list')}"><button>商品一覧</button></a>
+        <a href="{{ route('product') }}"><button>商品新規登録</button></a>
+        <a href="{{ route('product_list') }}"><button>商品一覧</button></a>
     </div>
     <div>
         <table class="table table-striped">
@@ -55,7 +55,7 @@
                 <td>{{ $inventory_search->stock_quantity }}</td>
                 <td>@if($inventory_search->stock_quantity < $inventory_search->ordering_point){{'発注点を下回りました。'}}@endif</td>
                 <td><a href="{{ route('purchase') }}"><button>発注</button></a></td>
-                <td><a href="{{route('product_edit',['id' => $inventory_search->id])}}"><button>編集</button></a></td>
+                <td><a href="{{ route('product_edit',['id' => $inventory_search->id]) }}"><button>編集</button></a></td>
             </tr>
         @endforeach
 
