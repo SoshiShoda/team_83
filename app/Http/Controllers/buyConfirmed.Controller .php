@@ -18,7 +18,7 @@ class buyConfirmedController extends Controller
     {
         $product_name = $request -> input('product_name');
         $product_size = $request -> input('product_size');
-        return view('user.buy', [
+        return view('user.buyConfirmed', [
             'product_naem' => $product_name,
             'product_size' => $product_size,
         ]);

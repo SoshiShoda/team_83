@@ -19,7 +19,7 @@ class userBuyController extends Controller
         $product_name = $request -> input('product_name');
         $product_size = $request -> input('product_size');
         $product_price_with_tax = $request -> input('product_price_with_tax');
-        return view('user.buy', [
+        return view('user.memberRegistrationComp', [
             'product_naem' => $product_name,
             'product_size' => $product_size,
             'rpoduct_price_with_tax' => $product_price_with_tax,
