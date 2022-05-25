@@ -11,11 +11,15 @@
 
     <nav class="header_nav nav" id="js-nav">
         <ul class="nav_items nav-items">
-            <li class="nav-items_item"><a href="">ログイン</a></li>
-            <li class="nav-items_item"><a href="">マイページ</a></li>
-            <li class="nav-items_item"><a href="">商品一覧</a></li>
-            <li class="nav-items_item"><a href="">カート</a></li>
-            <li class="nav-items_item"><a href="">レビュー</a></li>
+        @if ( Session::has('id') )
+            <li class="nav-items_item"><a href="{{ url('product_edit/'. Session::get('id') ) }}">会員編集</a></li>
+            <li class="nav-items_item"><a href="{{ url('product_list') }}">商品一覧</a></li>
+            <li class="nav-items_item"><a href="{{ url('buy') }}">カート</a></li>
+        @else
+            <li class="nav-items_item"><a href="{{ url('login') }}">ログイン</a></li>
+            <li class="nav-items_item"><a href="{{ url('user_register') }}">会員登録</a></li>
+            <li class="nav-items_item"><a href="{{ url('product_list') }}">商品一覧</a></li>
+        @endif
         </ul>
     </nav>
 </div>

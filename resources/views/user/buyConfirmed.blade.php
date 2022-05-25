@@ -13,16 +13,13 @@
 <body>
     <!-- ヘッダー部分 -->
     <div class="container">
-    <header id="header" class="header">
+        <header id="header" class="header">
             @include('common.header')
         </header>
-
-        <main>
-            <h1>注文が確定しました。</h1>
-
-            <input type="button" onclick="" value="商品一覧に戻る">
-        </main>
     </div>
+    <br><br><br><br><br>
+        <h1>注文が確定しました。</h1>
+        <a href="{{ url('product_list') }}">商品一覧に戻る</a>
     <script>
         const ham = document.querySelector('#js-hamburger');
         const nav = document.querySelector('#js-nav');
@@ -30,6 +27,7 @@
             ham.classList.toggle('active');
             nav.classList.toggle('active');
         });
+
     </script>
 </body>
 </html>

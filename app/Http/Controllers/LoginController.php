@@ -60,13 +60,29 @@ class LoginController extends Controller
             return $view;
         }
 
-        // //DBから取ってきたデータをセッションに保存
-        // $request->session()->put('id', $userdata->id);
-        // $request->session()->put('name', $userdata->name);
-        // $request->session()->put('work_id', $userdata->work_id);
-        // $request->session()->put('role',  $userdata->role);
+        //DBから取ってきたデータをセッションに保存
+        $request->session()->put('id', $userdata->id);
+        $request->session()->put('staff', $userdata->staff);
+        $request->session()->put('name', $userdata->user_name);
 
-        return redirect('product_list');  
+        //権限判定
+        if($userdata->staff == 'staff'){
+            //管理者ユーザー
+            return redirect('staff_top');  
+        }else{
+            //一般ユーザー
+            return redirect('product_list');  
+        }
+    }
+
+    /**
+     * ログイン画面表示
+     * 
+     * @return Response
+     */
+    public function staff_index()
+    {
+        return view ('admin.staff_top');
     }
 }
 
