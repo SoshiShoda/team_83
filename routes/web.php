@@ -19,7 +19,7 @@ use APP\Http\Controllers;
 
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('product_list');
 });
 
 // ログインページ

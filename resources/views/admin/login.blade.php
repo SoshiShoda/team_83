@@ -11,6 +11,9 @@
 </head>
 
 <body>
+    <header id="header" class="wrapper">
+        @include('common.header')
+    </header>
     <div>
         <h1>ログイン</h1>
         <div>
@@ -28,6 +31,7 @@
             </form>
         </div>
     </div>
+    <script src="{{ asset('/js/header.js') }}"></script>
 </body>
 
 </html>

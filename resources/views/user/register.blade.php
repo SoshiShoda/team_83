@@ -10,6 +10,9 @@
         <title>登録情報登録ページ</title>
     </head>
     <body>
+        <header id="header" class="wrapper">
+            @include('common.header')
+        </header>
         <h1>会員登録</h1>
         @if ($errors->any())
         <div class="alert alert-danger">
@@ -48,7 +51,7 @@
             {{ csrf_field() }}
             <p><button type="submit">登録</button></p>
             </div>
-
         </form>
+        <script src="{{ asset('/js/header.js') }}"></script>
     </body>
 </html>
