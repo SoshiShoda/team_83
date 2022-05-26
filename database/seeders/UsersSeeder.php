@@ -19,7 +19,7 @@ class UsersSeeder extends Seeder
         User::create([
             'id'           => '1',
             'user_status'  => 'active',
-            'staff'        => 'staff',
+            'staff'        => 'customer',
             'user_name'    => '一般ユーザー',
             'post_code'    => '1234567',
             'prefecture'   => 'テスト県',
@@ -37,7 +37,7 @@ class UsersSeeder extends Seeder
         User::create([
             'id'           => '2',
             'user_status'  => 'active',
-            'staff'        => 'customer',
+            'staff'        => 'staff',
             'user_name'    => '管理者ユーザー',
             'post_code'    => '1234567',
             'prefecture'   => 'テスト県',
