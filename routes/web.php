@@ -19,19 +19,18 @@ use APP\Http\Controllers;
 
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('product_list');
 });
 
 // ログインページ
 Route::get('/login', [App\Http\Controllers\LoginController::class, 'index']);
 // ログインチェック
 Route::post('/login/check', [App\Http\Controllers\LoginController::class, 'check']);
+// ログインアウト
+Route::get('/logout', [App\Http\Controllers\LoginController::class, 'logout']);
 
-// 商品一覧ページ（初期表示）
-Route::get('/productList', [App\Http\Controllers\ProductListController::class, 'index']);
-// 商品一覧ページ（検索時）
-Route::get('/productList/{keyword}', [App\Http\Controllers\ProductListController::class, 'search']);
-
+// 管理者トップページ
+Route::get('/staff_top', [App\Http\Controllers\LoginController::class, 'staff_index']);
 
 // 購入ページ
 Route::get('/buy', [App\Http\Controllers\userBuyController::class, 'index']);

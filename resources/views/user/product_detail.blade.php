@@ -64,6 +64,9 @@
 </head>
 <body>
     <div class="container">
+        <header id="header" class="wrapper">
+            @include('common.header')
+        </header>
         <div class="row">
             <!-- 写真ボックス -->
             <div class="main">
@@ -137,5 +140,6 @@
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="{{ asset('js/slick.js') }}"></script>
     <script type="text/javascript" src="slick/slick.min.js"></script>
+    <script src="{{ asset('/js/header.js') }}"></script>
 </body>
 </html>

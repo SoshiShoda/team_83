@@ -11,24 +11,19 @@
 </head>
 
 <body>
+    <!-- ヘッダー部分 -->
     <header id="header" class="wrapper">
         @include('common.header')
     </header>
     <div>
-        <h1>ログイン</h1>
         <div>
-            <form action="{{ url('login/check')}}" method="post">
-                @csrf
-
-                <!-- エラー表示用 -->
-                @if(isset($message))
-                    <p class="message">{{$message}}</p>
-                @endif
-                
-                <input type="email" name="email" value="{{ $email ?? '' }}" placeholder="メールアドレス"  required autofocus><br>
-                <input type="password" name="password" value="{{ $password ?? '' }}" placeholder="パスワード" required><br>
-                <button class="btn login" type="submit">ログイン</button>
-            </form>
+            <a href="{{ route('buy_index') }}">販売管理</a>
+        </div>
+        <div>
+            <a href="{{ route('inventory_management') }}">在庫管理</a>
+        </div>
+        <div>
+            <a href="{{ route('purchases') }}">仕入れ一覧</a>
         </div>
     </div>
     <script src="{{ asset('/js/header.js') }}"></script>
