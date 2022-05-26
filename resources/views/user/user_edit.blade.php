@@ -6,9 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <title>登録情報編集ページ</title>
 </head>
 <body>
+    <header id="header" class="wrapper">
+            @include('common.header')
+    </header>
+    <h1>会員編集</h1>
     @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
@@ -48,7 +53,7 @@
     {{ csrf_field() }}
     <p><button type="submit">更新</button></p>
     </div>
-
+    <script src="{{ asset('/js/header.js') }}"></script>
 </form>
 </body>
 </html>

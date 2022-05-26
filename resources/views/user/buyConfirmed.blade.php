@@ -12,23 +12,12 @@
 </head>
 <body>
     <!-- ヘッダー部分 -->
-    <div class="container">
-        <header id="header" class="header">
-            @include('common.header')
-        </header>
-    </div>
-    <br><br><br><br><br>
-        <h1>注文が確定しました。</h1>
-        <a href="{{ url('product_list') }}">商品一覧に戻る</a>
-    <script>
-        const ham = document.querySelector('#js-hamburger');
-        const nav = document.querySelector('#js-nav');
-        ham.addEventListener('click', function () {
-            ham.classList.toggle('active');
-            nav.classList.toggle('active');
-        });
-
-    </script>
+    <header id="header" class="wrapper">
+        @include('common.header')
+    </header>
+    <h1>注文が確定しました。</h1>
+    <a href="{{ url('product_list') }}">商品一覧に戻る</a>
+    <script src="{{ asset('/js/header.js') }}"></script>
 </body>
 </html>
 

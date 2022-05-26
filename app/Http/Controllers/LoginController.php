@@ -84,5 +84,17 @@ class LoginController extends Controller
     {
         return view ('admin.staff_top');
     }
+        /**
+     * ログアウト処理
+     * 
+     * @return Response
+     */
+    public function logout(Request $request)
+    {
+        //セッション削除
+        $request->session()->flush();
+        
+        return redirect('product_list');  
+    }
 }
 

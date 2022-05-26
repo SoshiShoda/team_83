@@ -161,7 +161,7 @@ class ProductController extends Controller
             'product_image6' => $path6,
         ]);
 
-        return redirect('/sales_management');
+        return redirect('/inventory_management');
     }
 
 
@@ -277,7 +277,6 @@ class ProductController extends Controller
         }
 
         $product_list_results = $query->orderBy('created_at', 'desc')->get();
-
         // 商品画像取得変数
         // $products = Product::find($request->id);
         // $path1 = $products->product_image1;

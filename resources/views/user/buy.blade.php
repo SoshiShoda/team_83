@@ -12,55 +12,46 @@
 </head>
 <body>
     <!-- ヘッダー部分 -->
-    <div class="container">
-        <header id="header" class="header">
-            @include('common.header')
-        </header>
+    <header id="header" class="wrapper">
+        @include('common.header')
+    </header>
 
-        <!-- 注文画面 -->
-        <main>
+    <!-- 注文画面 -->
+    <div>
+        <div>
             <div>
                 <div>
-                    <div>
-                        <div>
-                            <h1>注文内容の確認<span>計点</span></h1>
-                        </div>
-                        <div>
-                            <!-- 商品名など -->
-                        </div>
-                    </div>
-                    <div>
-                        <h1>品代<span>円</span></h1>
-                        <h1>送料<span>円</span></h1>
-                        <h1>合計<span>円</span></h1>
-                    </div>
+                    <h1>注文内容の確認<span>計点</span></h1>
                 </div>
                 <div>
-                    <div>
-                        <h1>お客様情報</h1>
-                    </div>
-                    <div>
-                        <div>
-                            <h1>お届け先</h1>
-                        </div>
-                        <div>
-                            <h1>お支払い方法</h1>
-                        </div>
-                    </div>
-                </div>
-                <!-- 注文確定ボタン -->
-                <div>
-                    <input type="button" onclick="" value="注文を確定する">
+                    <!-- 商品名など -->
                 </div>
             </div>
-        </main>
-        
-        <footer class="footer">
             <div>
-                フッター
+                <h1>品代<span>円</span></h1>
+                <h1>送料<span>円</span></h1>
+                <h1>合計<span>円</span></h1>
             </div>
-        </footer>
+        </div>
+        <div>
+            <div>
+                <h1>お客様情報</h1>
+            </div>
+            <div>
+                <div>
+                    <h1>お届け先</h1>
+                </div>
+                <div>
+                    <h1>お支払い方法</h1>
+                </div>
+            </div>
+        </div>
+        <!-- 注文確定ボタン -->
+        <div>
+            <input type="button" onclick="" value="注文を確定する">
+        </div>
     </div>
+    <script src="{{ asset('/js/header.js') }}"></script>
 </body>
 </html>
 
