@@ -18,6 +18,9 @@
     </style>
 </head>
 <body>
+    <header id="header" class="wrapper">
+            @include('common.header')
+    </header>
     <div class="container">
 
     <!-- バリデーションエラーの表示 -->
@@ -128,5 +131,6 @@
             </div>
         </form>
     </div>
+    <script src="{{ asset('/js/header.js') }}"></script>
 </body>
 </html>

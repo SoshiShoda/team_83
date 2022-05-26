@@ -11,6 +11,10 @@
 </head>
 
 <body>
+    <!-- ヘッダー部分 -->
+    <header id="header" class="wrapper">
+        @include('common.header')
+    </header>
     <div>
         <div>
             <a href="{{ route('buy_index') }}">販売管理</a>
@@ -18,7 +22,11 @@
         <div>
             <a href="{{ route('inventory_management') }}">在庫検索</a>
         </div>
+        <div>
+            <a href="{{ route('purchases') }}">仕入れ一覧</a>
+        </div>
     </div>
+    <script src="{{ asset('/js/header.js') }}"></script>
 </body>
 
 </html>
