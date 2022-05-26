@@ -26,6 +26,8 @@ Route::get('/', function () {
 Route::get('/login', [App\Http\Controllers\LoginController::class, 'index']);
 // ログインチェック
 Route::post('/login/check', [App\Http\Controllers\LoginController::class, 'check']);
+// ログインアウト
+Route::get('/logout', [App\Http\Controllers\LoginController::class, 'logout']);
 
 // 管理者トップページ
 Route::get('/staff_top', [App\Http\Controllers\LoginController::class, 'staff_index']);

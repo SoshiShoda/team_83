@@ -12,9 +12,16 @@
     <nav class="header_nav nav" id="js-nav">
         <ul class="nav_items nav-items">
         @if ( Session::has('id') )
-            <li class="nav-items_item"><a href="{{ url('user_edit/'. Session::get('id') ) }}">会員編集</a></li>
-            <li class="nav-items_item"><a href="{{ url('product_list') }}">商品一覧</a></li>
-            <li class="nav-items_item"><a href="{{ url('buy') }}">カート</a></li>
+            @if ( Session::has('staff') === 'customer' )
+                <li class="nav-items_item"><a href="{{ url('user_edit/'. Session::get('id') ) }}">会員編集</a></li>
+                <li class="nav-items_item"><a href="{{ url('product_list') }}">商品一覧</a></li>
+                <li class="nav-items_item"><a href="{{ url('buy') }}">カート</a></li>
+                <li class="nav-items_item"><a href="{{ url('logout') }}">ログアウト</a></li>
+
+            @else
+                <li class="nav-items_item"><a href="{{ url('staff_top') }}">管理者トップ</a></li>
+                <li class="nav-items_item"><a href="{{ url('logout') }}">ログアウト</a></li>
+            @endif
         @else
             <li class="nav-items_item"><a href="{{ url('login') }}">ログイン</a></li>
             <li class="nav-items_item"><a href="{{ url('user_register') }}">会員登録</a></li>
