@@ -1,6 +1,6 @@
 <div class="header-inner">
     <h1 class="site-title">
-        <p>demosite</p>
+        <p>通販サイト</p>
     </h1>
 
     <button class="header_hamburger hamburger" id="js-hamburger"> <!--ハンバーガーメニュー-->
@@ -20,6 +20,10 @@
 
             @else
                 <li class="nav-items_item"><a href="{{ url('staff_top') }}">管理者トップ</a></li>
+                <li class="nav-items_item"><a href="{{ url('product_list') }}">商品一覧</a></li>
+                <li class="nav-items_item"><a href="{{ url('buy_index') }}">販売管理</a></li>
+                <li class="nav-items_item"><a href="{{ url('inventory_management') }}">在庫管理</a></li>
+                <li class="nav-items_item"><a href="{{ url('purchase_list') }}">仕入れ一覧</a></li>
                 <li class="nav-items_item"><a href="{{ url('logout') }}">ログアウト</a></li>
             @endif
         @else

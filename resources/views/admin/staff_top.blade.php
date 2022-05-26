@@ -20,7 +20,7 @@
             <a href="{{ route('buy_index') }}">販売管理</a>
         </div>
         <div>
-            <a href="{{ route('inventory_management') }}">在庫検索</a>
+            <a href="{{ route('inventory_management') }}">在庫管理</a>
         </div>
         <div>
             <a href="{{ route('purchases') }}">仕入れ一覧</a>
