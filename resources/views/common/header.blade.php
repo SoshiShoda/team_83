@@ -12,7 +12,7 @@
     <nav class="header_nav nav" id="js-nav">
         <ul class="nav_items nav-items">
         @if ( Session::has('id') )
-            <li class="nav-items_item"><a href="{{ url('product_edit/'. Session::get('id') ) }}">会員編集</a></li>
+            <li class="nav-items_item"><a href="{{ url('user_edit/'. Session::get('id') ) }}">会員編集</a></li>
             <li class="nav-items_item"><a href="{{ url('product_list') }}">商品一覧</a></li>
             <li class="nav-items_item"><a href="{{ url('buy') }}">カート</a></li>
         @else
