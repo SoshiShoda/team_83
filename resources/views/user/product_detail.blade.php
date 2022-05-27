@@ -101,9 +101,8 @@
                 <h3>商品情報</h3>
                 <!-- バリデーションエラーの表示 -->
                 @include('common.errors')
-                <form action="{{ '/product_detail/{id}/post' }}" method="post">
+                <form action="{{ url('/product_detail/cart') }}" method="post">
                 {{ csrf_field() }}
-                    <input type="text" class="bg-light form-control" hidden id="product_id" name="user_id" value="{{ $product->user_id }}">
                     <input type="text" class="bg-light text-center form-control" hidden id="product_id" name="product_id" value="{{ $product->id }}">
                     <p>商品名：{{ $product->product_name }}</p>
                     <input type="text" class="bg-light text-center form-control" hidden id="product_name" name="product_name" value="{{ $product->product_name }}" placeholder="{{ $product->product_name }}">
@@ -112,19 +111,19 @@
                     <p>税込価格：{{ $product->product_price_with_tax }}円</p>
                     <input type="number" class="bg-light form-control" hidden id="bought_price_with_tax" name="bought_price_with_tax" value="{{ $product->product_price_with_tax }}" placeholder="{{ $product->product_price_with_tax}}">
                     <input type="number" class="bg-light form-control" hidden id="bought_tax_rate" name="bought_tax_rate" value="{{ $product->product_tax_rate }}" placeholder="{{ $product->product_tax_rate }}">
+                    <input type="hidden" name="product_number" value="{{ $product->product_number }}">
                     <div id="buying-box" class="mb-3">
                         <div class="product-size-box mb-3">
                             <label id="product-size-label" class="input-group-text">サイズ</label>
-                            <input type="text" name="product_size" list="product-size-datalist" class="form-control">
-                                <datalist id="product-size-datalist">
-                                    <option value="S"></option>
-                                    <option value="M"></option>
-                                    <option value="L"></option>
-                                </datalist>
+                            <select name="product_size" id="product-size-datalist" list="product-size-datalist" class="form-control">
+                                <option value="S" selected="selected">S</option>
+                                <option value="M">M</option>
+                                <option value="L">L</option>
+                            </select>
                         </div>
                         <div class="bought-quantity-box mt-3">
                             <label id="bought-quantity-label" class="input-group-text" for="bought_quantity">注文数</label>
-                            <input type="number" min="1" name="bought_quantity" class="form-control">
+                            <input type="number" min="1" name="bought_quantity" class="form-control" max="10" value="1">
                         </div>
                         <p class="mt-3">在庫有無：</p>
                         <p>{{ $inventory_check_result }}</p>

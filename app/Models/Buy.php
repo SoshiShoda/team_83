@@ -20,4 +20,21 @@ class Buy extends Model
     {
     return $this->belongsTo(Product::class);
     }
+    protected $fillable = [
+        'id',
+        'bought_status',
+        'user_id',
+        'product_name',
+        'product_number',
+        'invoice_id',
+        'product_id',
+        'bought_price',
+        'bought_price_with_tax',
+        'bought_tax_rate',
+        'bought_quantity',
+        'payment_method',
+        'created_at',
+        'updated_at',
+    ];
+
 }
