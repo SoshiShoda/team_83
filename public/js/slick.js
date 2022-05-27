@@ -14,4 +14,3 @@ $('.slider-nav').slick({
     centerMode: true,
     focusOnSelect: true
 });
-
