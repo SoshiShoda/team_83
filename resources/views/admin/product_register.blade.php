@@ -14,7 +14,7 @@
     <header id="header" class="wrapper">
         @include('common.header')
     </header>
-    <div class="container">
+    <div class="container text-center">
         <h2>商品登録ページ</h2>
         <form action="{{ route('product_register') }}" method="post" enctype="multipart/form-data">
             {{ csrf_field() }}
@@ -120,6 +120,7 @@
     <style>
         .input-group {
             max-width: 400px;
+            margin:auto;
         }
     </style>
     <script src="{{ asset('/js/header.js') }}"></script>

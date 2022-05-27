@@ -74,7 +74,7 @@
     <header id="header" class="wrapper">
         @include('common.header')
     </header>
-    <div class="container">
+    <div class="container text-center">
         <h2>販売管理ページ</h2>
         <h3>条件検索</h3>
         <div class="salesManagement-block" id="search-parameter">

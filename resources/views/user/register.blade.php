@@ -9,49 +9,53 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <title>登録情報登録ページ</title>
     </head>
-    <body>
+    <body class="login">
         <header id="header" class="wrapper">
             @include('common.header')
         </header>
-        <h1>会員登録</h1>
-        @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-        @endif
-        <form action="{{ route('user_register_insert') }}" method="post">
-            @csrf
-            <p>名前</p>
-            <input type="textarea" name="user_name" value="{{ old('user_name') }}">
-            <p>郵便番号</p>
-            <input type="textarea" name="post_code" value="{{ old('post_code') }}">
-            <p>都道府県</p>
-            <input type="textarea" name="prefecture" value="{{ old('prefecture') }}">
-            <p>市区町村番地</p>
-            <input type="textarea" name="municipality" value="{{ old('municipality') }}">
-            <p>マンション名</p>
-            <input type="textarea" name="apartment" value="{{ old('apartment') }}">
-            <p>メールアドレス</p>
-            <input type="textarea" name="email" value="{{ old('email') }}">
-            <p>電話番号</p>
-            <input type="textarea" name="phone_number" value="{{ old('phone_number') }}">
-            <p>生年月日</p>
-            <input type="date" name="birthday" value="{{ old('birthday') }}">
-            <p>職業</p>
-            <input type="textarea" name="occupation" value="{{ old('occupation') }}">
-            <p>性別</p>
-            <input type="textarea" name="gender" value="{{ old('gender') }}">
-            <p>パスワード</p>
-            <input type="password" name="password" >
-            <div>
-            {{ csrf_field() }}
-            <p><button type="submit">登録</button></p>
+        <div class="text-center">
+            <h1>会員登録</h1>
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
             </div>
-        </form>
+            @endif
+            <div class="login-form">
+                <form action="{{ route('user_register_insert') }}" method="post">
+                    @csrf
+                    <p>名前
+                    <input type="textarea" class="form-control" name="user_name" value="{{ old('user_name') }}"></p>
+                    <p>郵便番号
+                    <input type="textarea" class="form-control" name="post_code" value="{{ old('post_code') }}"></p>
+                    <p>都道府県
+                    <input type="textarea" class="form-control" name="prefecture" value="{{ old('prefecture') }}"></p>
+                    <p>市区町村番地
+                    <input type="textarea" class="form-control" name="municipality" value="{{ old('municipality') }}"></p>
+                    <p>マンション名
+                    <input type="textarea" class="form-control" name="apartment" value="{{ old('apartment') }}"></p>
+                    <p>メールアドレス
+                    <input type="textarea" class="form-control" name="email" value="{{ old('email') }}"></p>
+                    <p>電話番号
+                    <input type="textarea" class="form-control" name="phone_number" value="{{ old('phone_number') }}"></p>
+                    <p>生年月日
+                    <input type="date" class="form-control" name="birthday" value="{{ old('birthday') }}"></p>
+                    <p>職業
+                    <input type="textarea" class="form-control" name="occupation" value="{{ old('occupation') }}"></p>
+                    <p>性別
+                    <input type="textarea" class="form-control" name="gender" value="{{ old('gender') }}"></p>
+                    <p>パスワード
+                    <input type="password" class="form-control" name="password" ></p>
+                    <div>
+                    {{ csrf_field() }}
+                    <p><button type="submit" class="btn btn-primary mt-3">登録</button></p>
+                    </div>
+                </form>
+            </div>
+        </div>
         <script src="{{ asset('/js/header.js') }}"></script>
     </body>
 </html>

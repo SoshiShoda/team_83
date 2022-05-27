@@ -20,30 +20,26 @@
         @include('common.header')
     </header>
     <!-- 検索 -->
-    <div>
+    <div class="text-center">
         <form action="">
-            <div class="input-group mb-3">
-                <div class="row">
-                    <div class="col">
+                    <div class="input-group">
                         <input type="text" placeholder="商品を探す" name="product_list_search" class="form-control">
                         <button type="submit" class="form-control btn btn-primary">検索</button>
                     </div>
-                </div>
-            </div>
         </form>
     </div>
 
     <!-- 商品一覧 -->
     <div>
-        <ul>
+        <ul class="product-list">
             @foreach ($product_list_results as $product_list_result)
             <li>
                 <a href="{{ Route('product_detail' ,$product_list_result->id) }}">
                     <div class="row">
-                        <div class="col-2">
+                        <div class="">
                             <img src="{{ $product_list_result->product_image1 }}" class="product-list-image rounded">
                         </div>
-                        <div class="col-4">
+                        <div>
                             <p>{{ $product_list_result->product_name }}</p>
                             <p>{{ $product_list_result->product_price }}円（税抜）</p>
                             <p>商品番号：{{ $product_list_result->product_number }}</p>

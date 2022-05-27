@@ -10,13 +10,13 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
-<body>
+<body class="login">
     <header id="header" class="wrapper">
         @include('common.header')
     </header>
-    <div>
+    <div class="text-center">
         <h1>ログイン</h1>
-        <div>
+        <div class="login-form">
             <form action="{{ url('login/check')}}" method="post">
                 @csrf
 
@@ -25,9 +25,9 @@
                     <p class="message">{{$message}}</p>
                 @endif
                 
-                <input type="email" name="email" value="{{ $email ?? '' }}" placeholder="メールアドレス"  required autofocus><br>
-                <input type="password" name="password" value="{{ $password ?? '' }}" placeholder="パスワード" required><br>
-                <button class="btn login" type="submit">ログイン</button>
+                <input type="email" class="form-control" name="email" value="{{ $email ?? '' }}" placeholder="メールアドレス"  required autofocus><br>
+                <input type="password" class="form-control" name="password" value="{{ $password ?? '' }}" placeholder="パスワード" required><br>
+                <button class="btn btn-primary" type="submit">ログイン</button>
             </form>
         </div>
     </div>

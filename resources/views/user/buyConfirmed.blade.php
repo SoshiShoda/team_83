@@ -15,9 +15,11 @@
     <header id="header" class="wrapper">
         @include('common.header')
     </header>
-    <h1>注文が確定しました。</h1>
-    <a href="{{ url('product_list') }}">商品一覧に戻る</a>
-    <script src="{{ asset('/js/header.js') }}"></script>
+    <div class="text-center">
+        <h1>注文が確定しました。</h1>
+        <a href="{{ url('product_list') }}" class="btn btn-primary mt-3">商品一覧に戻る</a>
+        <script src="{{ asset('/js/header.js') }}"></script>
+    </div>
 </body>
 </html>
 

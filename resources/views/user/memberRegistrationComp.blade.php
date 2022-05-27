@@ -9,12 +9,12 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <title>会員情報登録完了</title>
     </head>
-    <body>     
+    <body class="login text-center">     
         <header id="header" class="wrapper">
             @include('common.header')
         </header>
         <h1>登録が完了しました!</h1>
-        <a href="{{ url('login') }}">ログイン画面に戻る</a>
+        <a href="{{ url('login') }}" class="btn btn-primary mt-3">ログイン画面に戻る</a>
         <script src="{{ asset('/js/header.js') }}"></script>
     </body>
 </html>

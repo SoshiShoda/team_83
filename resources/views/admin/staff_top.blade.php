@@ -15,15 +15,15 @@
     <header id="header" class="wrapper">
         @include('common.header')
     </header>
-    <div>
+    <div class="staff-top-list text-center">
         <div>
-            <a href="{{ route('buy_index') }}">販売管理</a>
+            <a href="{{ route('buy_index') }}" class="btn btn-outline-primary p-4 m-4">販売管理</a>
         </div>
         <div>
-            <a href="{{ route('inventory_management') }}">在庫管理</a>
+            <a href="{{ route('inventory_management') }}" class="btn btn-outline-primary p-4 m-4">在庫管理</a>
         </div>
         <div>
-            <a href="{{ route('purchases') }}">仕入れ一覧</a>
+            <a href="{{ route('purchases') }}" class="btn btn-outline-primary p-4 m-4">仕入れ一覧</a>
         </div>
     </div>
     <script src="{{ asset('/js/header.js') }}"></script>

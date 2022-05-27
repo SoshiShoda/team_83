@@ -12,16 +12,14 @@
     .product-edit-image {
         width: 200px;
     }
-    .input-group {
-        max-width: 400px;
-    }
+ 
     </style>
 </head>
 <body>
     <header id="header" class="wrapper">
             @include('common.header')
     </header>
-    <div class="container">
+    <div class="container text-center">
 
     <!-- バリデーションエラーの表示 -->
     @include('common.errors')

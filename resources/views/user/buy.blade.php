@@ -17,7 +17,7 @@
     </header>
 
     <!-- 注文画面 -->
-    <div>
+    <div class="text-center">
         <div>
             <div>
                 <div>

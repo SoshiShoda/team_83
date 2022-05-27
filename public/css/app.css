@@ -112,3 +112,59 @@
     top: -13px;
     transform: rotate(-45deg);
 } 
+
+/*
+ログイン・会員登録・会員編集
+*****/
+.login {
+    background-color:rgb(238, 238, 238);
+}
+.login-form{
+    max-width: 330px;
+    margin:0 auto 10%  auto;
+}
+
+
+/*
+スタッフトップ
+*****/
+.staff-top-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/*
+在庫管理
+*****/
+.inventory_management{
+    max-width:90%;
+    margin:auto;
+}
+
+/*
+商品登録・商品編集
+*****/
+.input-group {
+        max-width: 400px;
+        margin:auto;
+    }
+
+/*
+商品一覧
+*****/
+.product-list {
+    list-style:none;
+    width:100%;
+    margin:30px auto;
+    text-align:center;
+    overflow:hidden;
+}
+.product-list li{
+    display:block;
+    float: left;
+    width:100%;
+    max-width: 30%;
+    margin-right:15px;
+}
