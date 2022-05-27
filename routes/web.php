@@ -107,3 +107,14 @@ Route::post('/user_register',[App\Http\Controllers\UserController::class,'regist
 
 // 会員登録完了ページ
 Route::get('/memberRegistrationComp', [App\Http\Controllers\memberRegistrationCompController::class, 'index']);
+
+
+
+/******************************************
+ここから下は正田が途中までPGを進めた購入画面周辺です。
+先生よろしくお願いいたします。
+*******************************************/
+// 購入ページ表示
+Route::get('/buy/{user_id}', 'App\Http\Controllers\CartController@buyPageIndex')->name('buy_page');
+// 購入確定ボタン押下時
+Route::post('/buy/{user_id}', 'App\Http\Controllers\CartController@buyFix')->name('buy_fix');
