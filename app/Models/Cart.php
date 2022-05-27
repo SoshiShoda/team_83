@@ -20,4 +20,20 @@ class Cart extends Model
     {
     return $this->belongsTo(Product::class);
     }
+
+    protected $table = 'carts';
+    protected $fillable = [
+        'id',
+        'cart_status',
+        'user_id',
+        'product_id',
+        'product_name',
+        'product_number',
+        'bought_price',
+        'bought_price_with_tax',
+        'bought_tax_rate',
+        'bought_quantity',
+        'created_at',
+        'updated_at',
+    ];
 }
