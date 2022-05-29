@@ -60,7 +60,7 @@
     </table>
     <button type="submit">登録する</button> -->
 
-    <div class="container">
+    <div class="container text-center">
         <h2>仕入登録ページ</h2>
         <form action="{{ route('purchase_register') }}" method="post">
             {{ csrf_field() }}
@@ -117,6 +117,7 @@
     <style>
         .input-group {
             max-width: 400px;
+            margin:auto;
         }
     </style>
 <script src="{{ asset('/js/header.js') }}"></script>

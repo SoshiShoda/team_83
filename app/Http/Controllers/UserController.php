@@ -97,7 +97,7 @@ class UserController extends Controller
         $user_edit->password = $request->password;
         $user_edit->updated_at = now();
         $user_edit->save();
-        return redirect('/user_edit/'.$user_id->id);
+        return redirect('product_list');
     }
     
 }
