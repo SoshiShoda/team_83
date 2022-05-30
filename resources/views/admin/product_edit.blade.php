@@ -8,20 +8,32 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>product_edit</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style>
+    .product-edit-image {
+        width: 200px;
+    }
+ 
+    </style>
 </head>
 <body>
-    <div class="container">
+    <header id="header" class="wrapper">
+            @include('common.header')
+    </header>
+    <div class="container text-center">
+
+    <!-- バリデーションエラーの表示 -->
+    @include('common.errors')
 
     @if ($message = Session::get('success'))
     <p>{{ $message }}</p>
     @endif
-        <h2>商品更新ページ</h2>
+        <h2>商品編集ページ</h2>
         <form action="{{ route('product_update' ,$product_to_be_edited->id) }}" method="POST" enctype="multipart/form-data" id="product-edit-form">
             {{ csrf_field() }}
             @method("PATCH")
             <div id="id-box" class="input-group mb-3">
                 <span id="id-span" class="input-group-text">商品ID</span>
-                <input type="text" disabled name="id" id="id" class="form-control" value="{{ $product_to_be_edited->id }}">
+                <input type="text" name="id" id="id" class="form-control" value="{{ $product_to_be_edited->id }}" readonly >
             </div>
             <div id="product-name-box" class="input-group mb-3">
                 <span id="product-name-span" class="input-group-text">商品名</span>
@@ -117,5 +129,6 @@
             </div>
         </form>
     </div>
+    <script src="{{ asset('/js/header.js') }}"></script>
 </body>
 </html>

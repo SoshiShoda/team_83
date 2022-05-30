@@ -6,11 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <title>product_register</title>
 </head>
 <body>
-    <div class="container">
+    <!-- ヘッダー部分 -->
+    <header id="header" class="wrapper">
+        @include('common.header')
+    </header>
+    <div class="container text-center">
         <h2>商品登録ページ</h2>
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
         <form action="{{ route('product_register') }}" method="post" enctype="multipart/form-data">
             {{ csrf_field() }}
             <div id="product-id-box" class="input-group mb-3">
@@ -115,7 +129,9 @@
     <style>
         .input-group {
             max-width: 400px;
+            margin:auto;
         }
     </style>
+    <script src="{{ asset('/js/header.js') }}"></script>
 </body>
 </html>

@@ -161,7 +161,7 @@ class ProductController extends Controller
             'product_image6' => $path6,
         ]);
 
-        return redirect('/sales_management');
+        return redirect('/inventory_management');
     }
 
 
@@ -259,5 +259,43 @@ class ProductController extends Controller
 
         Product::where('id', $id)->update($update);
         return back()->with('success', '更新しました');
+    }
+
+        /**
+     * 商品一覧ページ表示（ユーザー画面側）
+     *
+     * @param Request $request
+     * @return Response
+     */
+    public function productListIndex(Request $request)
+    {
+        $product_list_search = $request->input('product_list_search');
+        $query = Product::query();
+        if(!empty($product_list_search)) {
+            $query->where('product_name', 'like', '%'. $product_list_search . '%');
+            $product_list_results = $query->orderBy('created_at', 'desc')->get();
+        }
+
+        $product_list_results = $query->orderBy('created_at', 'desc')->get();
+        // 商品画像取得変数
+        // $products = Product::find($request->id);
+        // $path1 = $products->product_image1;
+        // $path2 = $products->product_image2;
+        // $path3 = $products->product_image3;
+        // $path4 = $products->product_image4;
+        // $path5 = $products->product_image5;
+        // $path6 = $products->product_image6;
+
+
+        return view('user/product_list', [
+            'product_list_results' => $product_list_results,
+            // 'products' => $products,
+            // 'path1' => $path1,
+            // 'path2' => $path2,
+            // 'path3' => $path3,
+            // 'path4' => $path4,
+            // 'path5' => $path5,
+            // 'path6' => $path6,
+        ]);
     }
 }

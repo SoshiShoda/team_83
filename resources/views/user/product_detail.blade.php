@@ -15,10 +15,58 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style>
+        body > div.container > div > div.for-buy {
+            width: 30%;
+            min-width: 192px;
+        }
 
+        body > div.container > div > div.main {
+            width: 70%;
+        }
+
+        #slider-for-box {
+            position: relative;
+            width: 100%;
+        }
+
+        #slider-for-box:before {
+            content: '';
+            display: block;
+            padding-top: 75%;
+        }
+
+        #slider-for-box > ul {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+        }
+
+        #slider-for-box > ul > div > div > li.slick-slide.slick-current.slick-active {
+            width: 100%;
+        }
+
+        #slider-for-box {
+            width: 100%;
+        }
+
+        #slider-for-box > ul > div > div > li > img {
+            width: 100%;
+            height: auto;
+        }
+
+        body > div.container > div > div.main > div.slider-nav-box > ul > div > div > li > img {
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
+        <header id="header" class="wrapper">
+            @include('common.header')
+        </header>
         <div class="row">
             <!-- 写真ボックス -->
             <div class="main">
@@ -51,9 +99,10 @@
             <!-- 商品情報ボックス -->
             <div class="for-buy">
                 <h3>商品情報</h3>
-                <form action="{{ '/product_detail/{id}/post' }}" method="post">
+                <!-- バリデーションエラーの表示 -->
+                @include('common.errors')
+                <form action="{{ url('/product_detail/cart') }}" method="post">
                 {{ csrf_field() }}
-                    <input type="text" class="bg-light form-control" hidden id="product_id" name="user_id" value="{{ $product->user_id }}">
                     <input type="text" class="bg-light text-center form-control" hidden id="product_id" name="product_id" value="{{ $product->id }}">
                     <p>商品名：{{ $product->product_name }}</p>
                     <input type="text" class="bg-light text-center form-control" hidden id="product_name" name="product_name" value="{{ $product->product_name }}" placeholder="{{ $product->product_name }}">
@@ -62,19 +111,19 @@
                     <p>税込価格：{{ $product->product_price_with_tax }}円</p>
                     <input type="number" class="bg-light form-control" hidden id="bought_price_with_tax" name="bought_price_with_tax" value="{{ $product->product_price_with_tax }}" placeholder="{{ $product->product_price_with_tax}}">
                     <input type="number" class="bg-light form-control" hidden id="bought_tax_rate" name="bought_tax_rate" value="{{ $product->product_tax_rate }}" placeholder="{{ $product->product_tax_rate }}">
+                    <input type="hidden" name="product_number" value="{{ $product->product_number }}">
                     <div id="buying-box" class="mb-3">
                         <div class="product-size-box mb-3">
                             <label id="product-size-label" class="input-group-text">サイズ</label>
-                            <input type="text" name="product_size" list="product-size-datalist" class="form-control">
-                                <datalist id="product-size-datalist">
-                                    <option value="S"></option>
-                                    <option value="M"></option>
-                                    <option value="L"></option>
-                                </datalist>
+                            <select name="product_size" id="product-size-datalist" list="product-size-datalist" class="form-control">
+                                <option value="S" selected="selected">S</option>
+                                <option value="M">M</option>
+                                <option value="L">L</option>
+                            </select>
                         </div>
                         <div class="bought-quantity-box mt-3">
                             <label id="bought-quantity-label" class="input-group-text" for="bought_quantity">注文数</label>
-                            <input type="number" min="1" name="bought_quantity" class="form-control">
+                            <input type="number" min="1" name="bought_quantity" class="form-control" max="10" value="1">
                         </div>
                         <p class="mt-3">在庫有無：</p>
                         <p>{{ $inventory_check_result }}</p>
@@ -90,5 +139,6 @@
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="{{ asset('js/slick.js') }}"></script>
     <script type="text/javascript" src="slick/slick.min.js"></script>
+    <script src="{{ asset('/js/header.js') }}"></script>
 </body>
 </html>
