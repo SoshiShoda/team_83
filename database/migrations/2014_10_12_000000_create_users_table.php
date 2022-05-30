@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('prefecture', 4)->index()->comment('都道府県');
             $table->string('municipality', 191)->index()->comment('市区町村番地');
             $table->string('apartment', 191)->nullable($value = true)->index()->comment('マンション名部屋番号');
-            $table->string('email',191)->unique()->index()->comment('メールアドレス');
+            $table->string('email', 191)->charset("utf8")->unique()->index()->comment('メールアドレス');
             $table->string('phone_number', 11)->index()->comment('電話番号');
             $table->date('birthday')->index()->comment('生年月日');
             $table->string('occupation', 50)->index()->comment('職業');
