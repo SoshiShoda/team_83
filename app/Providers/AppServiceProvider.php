@@ -31,5 +31,9 @@ class AppServiceProvider extends ServiceProvider
         // herokuデプロイ時のためにデフォルト設定を191桁に設定しておく
         Schema::defaultStringLength(191);
         //【add-E 20220524 watanabe レビュー機能の削除とテーブル調整】
+
+        if(\App::environment(['production'])) {
+            \URL::forceScheme('https');
+        }
     }
 }
