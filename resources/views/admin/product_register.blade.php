@@ -16,6 +16,15 @@
     </header>
     <div class="container text-center">
         <h2>商品登録ページ</h2>
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
         <form action="{{ route('product_register') }}" method="post" enctype="multipart/form-data">
             {{ csrf_field() }}
             <div id="product-id-box" class="input-group mb-3">

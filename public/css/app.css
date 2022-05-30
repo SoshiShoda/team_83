@@ -168,3 +168,25 @@
     max-width: 30%;
     margin-right:15px;
 }
+
+/*
+購入ページ
+*****/
+.buy-page{
+	margin: 16px auto;
+	text-align: center;
+	display: block;
+}
+.buy-items{
+    width:auto;
+    display:inline-block;
+}
+.buy-item{
+	text-align: left;
+    padding:1% 5%;
+}
+.buy-user{
+	text-align: left;
+	display: inline-block;
+    padding:1% 5%;
+}
